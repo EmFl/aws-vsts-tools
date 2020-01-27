@@ -192,8 +192,8 @@
                                 "id": "sessionToken",
                                 "name": "Session Token",
                                 "description": "The AWS session token for signing programmatic requests.\nExample: AQoDYXdzEJr...<remainder of security token>",
-                                "inputMode": "passwordbox",
-                                "isConfidential": true,
+                                "inputMode": "textbox",
+                                "isConfidential": false,
                                 "validation": {
                                     "isRequired": false,
                                     "dataType": "string"
