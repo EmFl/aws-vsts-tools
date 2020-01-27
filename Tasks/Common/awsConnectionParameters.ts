@@ -106,15 +106,14 @@ function attemptEndpointCredentialConfiguration(
 
     const accessKey = awsparams.awsEndpointAuth.parameters.username
     const secretKey = awsparams.awsEndpointAuth.parameters.password
-    const token = awsparams.awsEndpointAuth.parameters.sessionToken
+
     awsparams.AssumeRoleARN = awsparams.awsEndpointAuth.parameters.assumeRoleArn
     if (!awsparams.AssumeRoleARN) {
         console.log('...endpoint defines standard access/secret key credentials')
 
         return new AWS.Credentials({
             accessKeyId: accessKey,
-            secretAccessKey: secretKey,
-            sessionToken: token
+            secretAccessKey: secretKey
         })
     }
 
@@ -141,8 +140,7 @@ function attemptEndpointCredentialConfiguration(
 
     const masterCredentials = new AWS.Credentials({
         accessKeyId: accessKey,
-        secretAccessKey: secretKey,
-        sessionToken: token
+        secretAccessKey: secretKey
     })
     const options: STS.AssumeRoleRequest = {
         RoleArn: awsparams.AssumeRoleARN,
